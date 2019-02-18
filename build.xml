@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Shopping cart with JUnit tests">
+<target name="make-directory">
+<mkdir dir="./staging"></mkdir>
+</target>
+<target name="compile" depends="make-directory">
+<javac debug="true" includeantruntime="false" srcdir="./src" destdir="staging" classpath="./junit.jar" />
+</target>
+<target name="runJUnit" depends="compile">
+<junit printsummary="on">
+<test name="testing.ShoppingCartTest"/>
+<classpath>
+<pathelement location="./junit.jar"/>
+<pathelement location="staging"/>
+</classpath>
+</junit>
+</target>
+<target name="jar" depends="runJUnit">
+	<jar destfile="./staging/ShoppingCart.jar" />
+	<fileset dir="./staging/implementation">
+	</fileset>
+	</target>
+</project>
