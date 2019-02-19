@@ -19,7 +19,9 @@ public class ShoppingCartTest {
 	@Test
 	public void test_cart_emptyCart() {
 		int productsCountFixture = 0;
+		int totalValueFixture=0;
 		assertTrue(productsCountFixture==target.getProductsCount());
+		assertTrue(totalValueFixture==target.getTotalValue());
 	}
 	
 	@Test
